@@ -5,11 +5,8 @@ import Search from "../Components/Search";
 import "../Styles/App.css"
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-const MoviesPage = ()=> {
-    const [movies, setMovies] = useState([])
+const MoviesPage = ({movies, setMovies})=> {
     const {q} = useParams()
-
-
     async function getMovies() {
         try{
             const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=bd5de89b9e82b5b22c882427a34369fa&page=${q}`);
@@ -19,9 +16,10 @@ const MoviesPage = ()=> {
     }
     
     useEffect(()=>{
-getMovies()
-    }, []) 
+    getMovies()
+    }, [q]) 
     
+
     return (
        <div className="section-card">
         {movies.map((movie)=>{
@@ -29,11 +27,12 @@ getMovies()
 <div key={movie.id}>
 <h1>{movie.name}</h1>
     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
-    <Link to={`/movie/${movie.id}`}> <button>Details</button></Link>
+    <Link to={`/movies/details/${movie.id}`}> <button>Details</button></Link>
 </div>
             )
         })}
-        
+        {Number(q) < 469 && (<div><Link to={`/movies/${Number(q)+1}`}><button>Next page</button></Link> </div>)}
+        {Number(q) > 1 && (<div><Link to={`/movies/${Number(q)-1}`}><button>Previous page</button></Link> </div>)}
         </div>
     )
     }
