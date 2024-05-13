@@ -30,8 +30,8 @@ function AllMoviesDetails() {
             <p>Popularity: {movieCard.popularity}</p>
             <p>Votes: {movieCard.vote_count}</p>
             <p>Average: {movieCard.vote_average}</p>
-          
-            <Link to={`/movies/${movieId}`}><button>Go back</button></Link>
+          <button className="btn-like"> <img src="/src/images/icons8-best-67.png" alt="like button" /> </button>
+            <Link to={`/movies/1`}><button>Go back</button></Link>
             </section>)
         }
         </>

@@ -11,7 +11,7 @@ const MoviesPage = ({movies, setMovies})=> {
         const arrayofPages = [1, 2, 3, 4, 5];
      return arrayofPages.map((each)=>{
             return(
-                       <Link to={`/movies/${each + Number(q)}`}> {each + Number(q)}
+                       <Link to={`/movies/${each + Number(q)}`}> {each + Number(q)} 
                        </Link>
                     
             )
@@ -41,9 +41,11 @@ const MoviesPage = ({movies, setMovies})=> {
 </div>
             )
         })}
-        {q > 2 && (<div><Link to={`/movies/1`}><button>First page</button></Link> </div>)}
-        {q <= 469 && createPages()}
+       <section className="subsection">
+        {q >= 2 && (<div><Link to={`/movies/1`}><button>First page</button></Link> </div>)}
+        <a className="pages">{createPages()}</a>
         {q < 469 && (<div><Link to={`/movies/469`}><button>Last Page</button></Link> </div>)}
+       </section>
         </div>
     )
     }

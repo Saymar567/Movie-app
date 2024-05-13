@@ -8,7 +8,7 @@ const ContactForm = ()=>{
         message: "",
         mail: ""
     }
-    const handleSubmit = ()=>{
+    const handleSubmit = (event)=>{
         event.preventDefault();
 
     }

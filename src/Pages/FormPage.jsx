@@ -17,10 +17,10 @@ function FormPage(){
 <input type="text" name="name" />
 <label htmlFor="year">Year </label>
 <input type="number" name="number" />
-<label htmlFor="Message">Message </label>
+<label htmlFor="Message">Overview </label>
 <input type="text" name="message"/>
-<label htmlFor="Image">Mail</label>
-<input type="image" name="mail" />
+<label htmlFor="Image">Poster</label>
+<input type="image" name="image" />
 <button>Send</button>
             </form>
         </div>
