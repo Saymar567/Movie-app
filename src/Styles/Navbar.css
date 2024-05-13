@@ -4,6 +4,10 @@
     justify-content: center;
     
 }
-.navbar ul {
-    color: white
+
+details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+border: 1px solid black;
 }
