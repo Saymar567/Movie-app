@@ -27,7 +27,11 @@ function AllMoviesDetails() {
             <img src={`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
             <p>{movieCard.release_date} </p>
             <p>{movieCard.overview}</p>
-            <Link to={`/movies/1`}><button>Go back</button></Link>
+            <p>Popularity: {movieCard.popularity}</p>
+            <p>Votes: {movieCard.vote_count}</p>
+            <p>Average: {movieCard.vote_average}</p>
+          
+            <Link to={`/movies/${movieId}`}><button>Go back</button></Link>
             </section>)
         }
         </>

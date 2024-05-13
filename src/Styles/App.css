@@ -32,7 +32,26 @@
 .card-container img {
     width: fit-content;
     border-radius: 30%;
+    border: 1px solid black;
     width: 100px
     
    
+}
+
+.form-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.footer button {
+    border: none;
+    text-decoration: underline;
+    background-color: white;
+    cursor: pointer;
 }

@@ -6,7 +6,17 @@ import "../Styles/App.css"
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 const MoviesPage = ({movies, setMovies})=> {
-    const {q} = useParams()
+    const {q} = useParams();
+    const createPages = ()=> {
+        const arrayofPages = [1, 2, 3, 4, 5];
+     return arrayofPages.map((each)=>{
+            return(
+                       <Link to={`/movies/${each + Number(q)}`}> {each + Number(q)}
+                       </Link>
+                    
+            )
+        })
+    }
     async function getMovies() {
         try{
             const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=bd5de89b9e82b5b22c882427a34369fa&page=${q}`);
@@ -31,8 +41,9 @@ const MoviesPage = ({movies, setMovies})=> {
 </div>
             )
         })}
-        {Number(q) < 469 && (<div><Link to={`/movies/${Number(q)+1}`}><button>Next page</button></Link> </div>)}
-        {Number(q) > 1 && (<div><Link to={`/movies/${Number(q)-1}`}><button>Previous page</button></Link> </div>)}
+        {q > 2 && (<div><Link to={`/movies/1`}><button>First page</button></Link> </div>)}
+        {q <= 469 && createPages()}
+        {q < 469 && (<div><Link to={`/movies/469`}><button>Last Page</button></Link> </div>)}
         </div>
     )
     }

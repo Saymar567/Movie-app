@@ -12,7 +12,7 @@ import Footer from './Components/Footer'
 import AllMoviesDetails from './Pages/AllMoviesDetails'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
-
+import ContactForm from './Pages/ContactForm'
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -28,6 +28,7 @@ function App() {
 <Route path="/MyList" element={<MyList />} />
 <Route path="/Form"element={<FormPage />}/>
 <Route path="/movies/details/:movieId" element={<AllMoviesDetails movies={movies} />} />
+<Route path="/contactForm" element={<ContactForm />} />
       </Routes>
       <Footer />
     </>
