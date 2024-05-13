@@ -3,5 +3,28 @@
    margin: 0;
    box-sizing: border-box;
 }
+.section-card{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    
+}
 
-
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 350px;
+    background-color: rgb(32, 180, 124);
+    padding: 5px
+}
+.card-container img {
+    width: fit-content;
+    border-radius: 30%;
+    width: 100px
+    
+   
+}

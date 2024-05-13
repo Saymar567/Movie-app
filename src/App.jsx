@@ -9,6 +9,7 @@ import Navbar from './Components/Navbar'
 import MoviesPage from './Pages/MoviesPage'
 import { Route, Routes } from 'react-router-dom'
 import Footer from './Components/Footer'
+import AllMoviesDetails from './Pages/AllMoviesDetails'
 
 function App() {
 
@@ -18,9 +19,10 @@ function App() {
     <Navbar />
       <Routes>
 <Route path="/" element={<HomePage />}/>
-<Route path="/Movies" element={<MoviesPage />} />
+<Route path="/Movies/:q" element={<MoviesPage />} />
 <Route path="/MyList" element={<MyList />} />
 <Route path="/Form"element={<FormPage />}/>
+<Route path="/movies/:movieId" element={<AllMoviesDetails />} />
       </Routes>
       <Footer />
     </>
