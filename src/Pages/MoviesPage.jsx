@@ -9,23 +9,18 @@ const MoviesPage = ({movies, setMovies})=> {
     const {q} = useParams();
     const createPages = ()=> {
         const currentPage = Number(q);
-        if(currentPage === 469){
-            return [464, 465, 466, 467, 468].map((page)=>{
-                return(<Link key={page} to={`/movies/${page}`}> {page} </Link>
-            )});
-        } else {
-
-            const arrayofPages = [1, 2, 3, 4, 5];
+      const arrayofPages = [1, 2, 3, 4, 5];
             return arrayofPages.map((each)=>{
-                
                     return(
-                    <Link key={currentPage + each} to={`/movies/${each + currentPage}`}> {each + currentPage} 
-                       </Link>
+                        <>
+                    <Link key={currentPage + each} to={`/movies/${each + currentPage}`}>{each + currentPage} 
+                       </Link> <br />
                     
+                        </>
                 )
-            })    
+            })   
         }
-        }
+        
         async function getMovies() {
             try{
                 const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=bd5de89b9e82b5b22c882427a34369fa&page=${q}`);
