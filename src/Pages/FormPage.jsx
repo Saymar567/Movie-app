@@ -40,7 +40,7 @@ if (error){
 <label htmlFor="Message">Overview </label>
 <input onChange={handleInput} value={newFilm.overview} type="text" name="message" style={{height: 60, }}/>
 <label htmlFor="Image">Poster</label>
-<input onChange={handleInput} value={newFilm.poster_path} type="image" name="image" />
+<input onChange={handleInput} value={newFilm.poster_path} type="text" name="image" />
 <button style={{width: 50}}>Create film</button>
             </form>
         </div>

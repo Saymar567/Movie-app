@@ -7,11 +7,11 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-
 }
 body {
     cursor: url("/src/Images/icons8-popcorn-25.png"), auto;
 width: 1500px;
+
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .navbar {
@@ -37,12 +37,17 @@ background-color:  rgb(32, 180, 124);
 transition: 0.3s;
 }
 .homepage{
-    display: absolute;
-    background-image: url("/src/Images/Sala_de_cine.jpg");
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:100%;
+    background-image: url("/src/Images/videoclub.jpg");
+  background-size: cover;
 }
 .homepage h1 {
     display: relative;
     color: white;
+
     
 }
 .section-card{
@@ -50,9 +55,9 @@ transition: 0.3s;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 20px;
         border: 1px solid black;
-        background-image: url("");
+       
     
 }
 
@@ -60,12 +65,18 @@ transition: 0.3s;
     width: 20vw;
     border: 4px solid black;
     border-radius: 10% ;
+    box-shadow: 5px 0 5px 5px;
 }
 .section-card div {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.section-card button {
+    margin-top: 5px;
+    border-radius: 10px;
 }
 .subsection {
     display: flex;

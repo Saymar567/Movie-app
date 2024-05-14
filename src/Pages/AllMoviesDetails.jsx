@@ -29,9 +29,9 @@ function AllMoviesDetails() {
                         <img src={`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
                         <p>{movieCard.release_date} </p>
                         <p>{movieCard.overview}</p>
-                        <p>Popularity: {movieCard.popularity}</p>
-                        <p>Votes: {movieCard.vote_count}</p>
-                        <p>Average: {movieCard.vote_average}</p>
+                        {movieCard.popularity && (<p>Popularity: {movieCard.popularity}</p>)}
+                        {movieCard.vote_count &&(<p>Votes: {movieCard.vote_count}</p>)}
+                        {movieCard.vote_average && (<p>Average: {movieCard.vote_average}</p>)}
                         <button className="btn-like"> <img src="/src/images/icons8-best-67.png" alt="like button" /> </button>
                     <button onClick={()=> navigate(-1)} >Go back</button>
                     </section>)

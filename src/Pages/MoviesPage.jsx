@@ -28,7 +28,7 @@ const MoviesPage = ({ movies, setMovies }) => {
 
     async function getMovies() {
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=bd5de89b9e82b5b22c882427a34369fa&page=${q}`);
+            const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_MOVIEBASE_KEY}&page=${q}`);
             const data = await response.json();
             setMovies(data.results)
         } catch (error) { console.log("The end", error) }
