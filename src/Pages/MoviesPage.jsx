@@ -9,44 +9,41 @@ const MoviesPage = ({movies, setMovies})=> {
     const {q} = useParams();
     const createPages = ()=> {
         const currentPage = Number(q);
-        const totalPages = 469;
         if(currentPage === 469){
             return [464, 465, 466, 467, 468].map((page)=>{
-                <Link key={page} to={`/movies/${page}`}> {page} </Link>
-            })
-        } else{
+                return(<Link key={page} to={`/movies/${page}`}> {page} </Link>
+            )});
+        } else {
 
-        }
-        const arrayofPages = [1, 2, 3, 4, 5];
-     return arrayofPages.map((each)=>{
-      
-
-            return(
-                <Link to={`/movies/${each + Number(q)}`}> {each + Number(q)} 
+            const arrayofPages = [1, 2, 3, 4, 5];
+            return arrayofPages.map((each)=>{
+                
+                    return(
+                    <Link key={currentPage + each} to={`/movies/${each + currentPage}`}> {each + currentPage} 
                        </Link>
                     
                 )
             })    
         }
-    }
-    async function getMovies() {
-        try{
-            const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=bd5de89b9e82b5b22c882427a34369fa&page=${q}`);
-            const data = await response.json();
-            setMovies(data.results)
-        }catch(error){console.log("The end", error)}
-    }
-    
-    useEffect(()=>{
-    getMovies()
-    }, [q]) 
-    
-
-    return (
-       <div className="section-card">
+        }
+        async function getMovies() {
+            try{
+                const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=bd5de89b9e82b5b22c882427a34369fa&page=${q}`);
+                const data = await response.json();
+                setMovies(data.results)
+            }catch(error){console.log("The end", error)}
+        }
+        
+        useEffect(()=>{
+            getMovies()
+        }, [q]) 
+        
+        
+        return (
+            <div className="section-card">
         {movies.map((movie)=>{
             return(
-<div key={movie.id}>
+                <div key={movie.id}>
 <h1>{movie.name}</h1>
     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
     <Link to={`/movies/details/${movie.id}`}> <button>Details</button></Link>
@@ -60,7 +57,8 @@ const MoviesPage = ({movies, setMovies})=> {
        </section>
         </div>
     )
-    }
+}
+    
 
 {/*movies.map((movie)=> 
 (<h1>{movie.name}</h1>
