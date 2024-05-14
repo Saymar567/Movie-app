@@ -4,9 +4,9 @@ const Footer = ()=>{
     
     return (
             <footer className="footer">
-                <img src="" alt="" />
-                <img src="" alt="" />
-                <img src="" alt="" />
+                <img src="/src/images/icons8-twitter-25.png" alt="twitter-logo" /> 
+                <img src="/src/images/icons8-facebook-25.png" alt="" />
+                <img src="/src/images/icons8-instagram-25.png" alt="" />
        Video-Club Santutxu ©️ {newDate.getFullYear()}
      
        <Link to="/contactForm"><button>Contact me</button></Link>

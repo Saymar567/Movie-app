@@ -10,7 +10,7 @@
 
 }
 body {
-cursor: url("/src/Images/icons8-popcorn-48.png");
+cursor: url("/src/Images/icons8-popcorn-25.png"), auto;
 }
 .navbar {
     background-color: black;
@@ -25,12 +25,15 @@ cursor: url("/src/Images/icons8-popcorn-48.png");
 .navbar a {
     text-decoration: none;
     color: white;
-    transform: 2s;
+    
+}
+.navbar a:hover {
+background-color: #fd9a9a;
+transition: 0.3s;
 }
 .homepage{
     display: absolute;
     background-image: url("/src/Images/Sala_de_cine.jpg");
-   background-size: cover ;
 }
 .homepage h1 {
     display: relative;
@@ -148,6 +151,9 @@ cursor: url("/src/Images/icons8-popcorn-48.png");
     background-color: black;
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.footer img {
+    background-color: white;
 }
 .pages {
     display: flex;
