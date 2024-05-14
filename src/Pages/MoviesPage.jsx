@@ -43,11 +43,12 @@ const MoviesPage = ({ movies, setMovies }) => {
         <div className="section-card">
             {movies.map((movie) => {
                 return (
-                    <div key={movie.id}>
+                    <Link to={`/movies/details/${movie.id}`}>
+                   <div key={movie.id}>
                         <h1>{movie.name}</h1>
                         <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
-                        <Link to={`/movies/details/${movie.id}`}> <button>Details</button></Link>
                     </div>
+                        </Link>
                 )
             })}
             <section className="subsection">

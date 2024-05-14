@@ -75,7 +75,7 @@ transition: 0.3s;
 }
 
 .section-card button {
-    margin-top: 5px;
+    margin-top: 50px;
     border-radius: 10px;
 }
 .subsection {
@@ -91,7 +91,7 @@ transition: 0.3s;
     justify-content: center;
     border-radius: 10px;
     border: 1px solid black;
-    width: 350px;
+    width: 1050px;
     background-color: rgb(32, 180, 124);
     padding: 5px
 }
@@ -99,7 +99,7 @@ transition: 0.3s;
     width: fit-content;
     border-radius: 30%;
     border: 1px solid black;
-    width: 100px
+    width: 300px
 }
 
 .btn-like img {

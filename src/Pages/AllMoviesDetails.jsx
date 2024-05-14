@@ -29,6 +29,7 @@ function AllMoviesDetails() {
                         <img src={`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
                         <p>{movieCard.release_date} </p>
                         <p>{movieCard.overview}</p>
+                        <p>Aidi campeona de Santiago de Compostela</p>
                         {movieCard.popularity && (<p>Popularity: {movieCard.popularity}</p>)}
                         {movieCard.vote_count &&(<p>Votes: {movieCard.vote_count}</p>)}
                         {movieCard.vote_average && (<p>Average: {movieCard.vote_average}</p>)}
