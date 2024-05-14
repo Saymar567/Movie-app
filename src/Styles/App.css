@@ -74,7 +74,9 @@
 }
 
 .btn-like img {
-    width: 19px
+    width: 19px;
+    border-bottom: 35px;
+    margin-bottom: 3px;
 }
 .btn-like {
     border: none;
@@ -114,6 +116,9 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+.form-content input {
+    width: 350px
 }
 .footer {
     display: flex;

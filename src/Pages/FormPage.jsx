@@ -18,10 +18,10 @@ function FormPage(){
 <label htmlFor="year">Year </label>
 <input type="number" name="number" />
 <label htmlFor="Message">Overview </label>
-<input type="text" name="message"/>
+<input type="text" name="message" style={{height: 60, }}/>
 <label htmlFor="Image">Poster</label>
 <input type="image" name="image" />
-<button>Send</button>
+<button style={{width: 50}}>Send</button>
             </form>
         </div>
         </>
