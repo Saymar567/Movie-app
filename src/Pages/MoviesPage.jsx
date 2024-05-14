@@ -5,6 +5,7 @@ import Search from "../Components/Search";
 import "../Styles/App.css"
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import supabase from "../Supabase/config";
 const MoviesPage = ({ movies, setMovies }) => {
     const { q } = useParams();
     const createPages = () => {
@@ -25,12 +26,27 @@ const MoviesPage = ({ movies, setMovies }) => {
             }
         })
     }
-
+    
+    const callingMovies = async ()=>{
+      const {data, error} = await supabase.from("Movies").select();
+      if(error) {
+        console.log("WTF is going on", error)
+      } else {
+        console.log("Data fetch-a, good cheese")
+        return data
+      }
+    }
     async function getMovies() {
         try {
             const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_MOVIEBASE_KEY}&page=${q}`);
+            const userMovies = await callingMovies()
+            // add the supabase call for the Movies table
+            // store it in a variable (also await)
+            // setMovies([...data.results, ...variableOfSupabase])
+            console.log(userMovies)
             const data = await response.json();
-            setMovies(data.results)
+            setMovies([...userMovies, ...data.results])
+        
         } catch (error) { console.log("The end", error) }
     }
 
