@@ -8,14 +8,26 @@ import { Link } from "react-router-dom";
 const MoviesPage = ({movies, setMovies})=> {
     const {q} = useParams();
     const createPages = ()=> {
+        const currentPage = Number(q);
+        const totalPages = 469;
+        if(currentPage === 469){
+            return [464, 465, 466, 467, 468].map((page)=>{
+                <Link key={page} to={`/movies/${page}`}> {page} </Link>
+            })
+        } else{
+
+        }
         const arrayofPages = [1, 2, 3, 4, 5];
      return arrayofPages.map((each)=>{
+      
+
             return(
-                       <Link to={`/movies/${each + Number(q)}`}> {each + Number(q)} 
+                <Link to={`/movies/${each + Number(q)}`}> {each + Number(q)} 
                        </Link>
                     
-            )
-        })
+                )
+            })    
+        }
     }
     async function getMovies() {
         try{
