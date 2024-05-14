@@ -11,7 +11,8 @@
 }
 body {
     cursor: url("/src/Images/icons8-popcorn-25.png"), auto;
-width: 1500px
+width: 1500px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .navbar {
     background-color: black;
