@@ -1,27 +1,47 @@
-
-function FormPage(){
-    const newFilm = {
-        name: "",
+import { useState } from "react";
+const createFilm = {
+    name: "",
         year: "",
         overview: "",
         image: ""
-    }
-    const handleSubmit= (event)=>{
-        event.preventDefault()
+}
+
+function FormPage(){
+    const [newFilm, setNewFilm] = useState(createFilm)
+    
+    const handleInput = (event)=>{
+        const field = event.target.name;
+        const value = event.target.value;
+
+        setNewFilm({
+            ...newFilm, [field]: value,
+        })
+    };
+    
+    const handleSubmit= async (event)=>{
+        event.preventDefault();
+/*const {data, error} = await database.from("nombre de la base de datos").insert([newFilm]);
+if (error){
+    console.log("error creating the new film", error);
+    return
+} else{
+    console.log("Film created!");
+    setNewFilm(createFilm)
+} */
     }
     return(
         <>
    <div>
-            <form className="form-content" onChange={handleSubmit} action="">
+            <form className="form-content" onSubmit={handleSubmit} action="">
 <label htmlFor="Name">Name </label>
-<input type="text" name="name" />
+<input onChange={handleInput} value={newFilm.title} type="text" name="name" />
 <label htmlFor="year">Year </label>
-<input type="number" name="number" />
+<input onChange={handleInput} value={newFilm.release_date} type="number" name="number" />
 <label htmlFor="Message">Overview </label>
-<input type="text" name="message" style={{height: 60, }}/>
+<input onChange={handleInput} value={newFilm.overview} type="text" name="message" style={{height: 60, }}/>
 <label htmlFor="Image">Poster</label>
-<input type="image" name="image" />
-<button style={{width: 50}}>Send</button>
+<input onChange={handleInput} value={newFilm.poster_path} type="image" name="image" />
+<button style={{width: 50}}>Create film</button>
             </form>
         </div>
         </>
