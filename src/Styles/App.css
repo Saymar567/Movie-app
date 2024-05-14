@@ -10,7 +10,8 @@
 
 }
 body {
-cursor: url("/src/Images/icons8-popcorn-25.png"), auto;
+    cursor: url("/src/Images/icons8-popcorn-25.png"), auto;
+width: 1500px
 }
 .navbar {
     background-color: black;
@@ -21,14 +22,17 @@ cursor: url("/src/Images/icons8-popcorn-25.png"), auto;
     margin-bottom: 10px;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 20px;
+   border: 5px solid  rgb(32, 180, 124);
+   border-radius: 10px 
 }
 .navbar a {
     text-decoration: none;
     color: white;
+    margin-top: 8px;
     
 }
 .navbar a:hover {
-background-color: #fd9a9a;
+background-color:  rgb(32, 180, 124);
 transition: 0.3s;
 }
 .homepage{
@@ -121,7 +125,7 @@ transition: 0.3s;
     border-radius: 50%;
     padding-top: 4px;
     margin: 0 auto;
-    background-color: #fd9a9a;
+    background-color:  rgb(32, 180, 124);
   }
 
 
@@ -143,6 +147,8 @@ transition: 0.3s;
     background-color: black;
     width:100%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 5px solid  rgb(32, 180, 124);
+    border-radius: 10px;
 }
 .footer button {
     border: none;
@@ -154,6 +160,12 @@ transition: 0.3s;
 }
 .footer img {
     background-color: white;
+    margin-right: 10px;
+    margin-top: 5px;
+    border: 2px solid  rgb(32, 180, 124);
+    border-radius: 10px;
+    
+
 }
 .pages {
     display: flex;
