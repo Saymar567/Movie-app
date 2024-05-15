@@ -63,7 +63,7 @@ function AllMoviesDetails() {
                         <section key={movieCard.id} className="card-container">
                             <h1>{movieCard.title} </h1>
                             <img src={`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
-                           <button>Like button</button>
+                           <button className="like-btn"> <img src="/src/Images/icons8-me-gusta-24.png" alt="like-btn"></img> <img className="second-like-btn" src="/src/Images/icons8-me-gusta-24-1.png" alt=""></img> </button>
                             <p>{movieCard.release_date} </p>
                             <p>{movieCard.overview}</p>
 

@@ -101,8 +101,17 @@ transition: 0.3s;
     border: 1px solid black;
     width: 300px
 }
+.like-btn img {
+    display: content;
+    width:20px
+}
 
-
+.second-like-btn {
+display: none
+}
+.second-like-btn-displayed {
+display: content
+}
 
 .form-content {
     display: flex;
