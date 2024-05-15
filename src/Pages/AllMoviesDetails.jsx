@@ -15,7 +15,7 @@ function AllMoviesDetails({newFilm}) {
     const [pressButton, setPressButton] = useState(false)
     // create a state variable to check if its supabase or not
     const [isSupabase, setIsSupabase] = useState(false)
-
+const [isFavorite, setIsFavorite] =useState(false)
     const deleteMovie = async()=>{
         const {error} = await (supabase)
         .from("Movies")
@@ -43,8 +43,9 @@ if(error) {
 
 
 const toggleButton = () =>{
-    setPressButton(!pressButton);
-    addToFavorites()
+   setPressButton(pressButton);
+    addToFavorites();
+    setIsFavorite(isFavorite)
 }
     const callingMovies = async () => {
         try{
@@ -109,7 +110,7 @@ const toggleButton = () =>{
                         <section key={movieCard.id} className="card-container">
                             <h1>{movieCard.title} </h1>
                             <img src={/*newFilm && isSupabase ? (newPoster):(*/`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
-                           <button className="like-btn" onClick={toggleButton}> {} {pressButton ? (<img className="second-like-btn" src="/src/Images/icons8-me-gusta-24-1.png" alt=""></img>) :(<img src="/src/Images/icons8-me-gusta-24.png" alt="like-btn"></img>)} </button>
+                           <button className="like-btn" onClick={toggleButton}> {isFavorite ? (<img className="second-like-btn" src="/src/Images/icons8-me-gusta-24-1.png" alt=""></img>) :(<img src="/src/Images/icons8-me-gusta-24.png" alt="like-btn"></img>)} </button>
                             <p>{movieCard.release_date} </p>
                             <p>{movieCard.overview}</p>
 
@@ -122,9 +123,12 @@ const toggleButton = () =>{
                             {isSupabase && <button onClick={deleteMovie}>Delete</button>}
                         </section>)
                 }
-                <MyList newFilm={newFilm} />
+                <MyList newFilm={newFilm}  />
             </>
         )
     }
 
 export default AllMoviesDetails
+
+// en el input, onChange= () => event.target.value (handleSearch), con un filter y luego un includes
+//if searchvalue === ""
