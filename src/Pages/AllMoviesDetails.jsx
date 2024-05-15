@@ -11,6 +11,24 @@ function AllMoviesDetails() {
     const { movieId } = useParams();
     const navigate = useNavigate();
     const [pressButton, setPressButton] = useState(false)
+    // create a state variable to check if its supabase or not
+    const [isSupabase, setIsSupabase] = useState(false)
+
+    const deleteMovie = async()=>{
+        const {error} = await (supabase)
+        .from("Movies")
+        .delete()
+        .eq("id", movieCard.id)
+        if(error){
+            console.log("me cagonmivida", error)
+        } else {
+            setMovie()
+        }
+
+    }
+    /*const deleteMovie = movieId =>{
+        const deleteButton = movieCard.filter(movieCard => movieCard.id !== movieId)
+        return setMovie(deleteButton) }*/
 const toggleButton = () =>{
     setPressButton(!pressButton)
 }
@@ -34,9 +52,11 @@ const toggleButton = () =>{
                 const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=bd5de89b9e82b5b22c882427a34369fa`);
                 const data = await response.json();
                 //const newPromise = await callingMovies();
-                
+                // 
                 if (response.ok) {
                     setMovie(data)
+                    // set the isSupabase to false
+                  setIsSupabase(false)
                 } else {
                     throw new Error("not taking from TMDB")
                 }
@@ -46,8 +66,12 @@ const toggleButton = () =>{
                 const supabaseData = await callingMovies();
                 if(supabaseData){
                     setMovie(supabaseData[0])
+                    
+                    // set the variable isSupabase to true
+                    setIsSupabase(true)
                 }else{
-                    console.log("error from supabase", error)
+                    console.log("error from supabase", error);
+                    setIsSupabase(false)
                 }
             }
         }
@@ -56,7 +80,8 @@ const toggleButton = () =>{
         }, [movieId])
 
         if(!movieCard){
-            return <p>Loading...</p>
+            
+            return  <button onClick={() => navigate(-1)} >Go back</button>
         }
         console.log(movieCard)
         return (
@@ -75,6 +100,8 @@ const toggleButton = () =>{
                             {movieCard.vote_average && (<p>Average: {movieCard.vote_average}</p>)}
 
                             <button onClick={() => navigate(-1)} >Go back</button>
+                            <br />
+                            {isSupabase && <button onClick={deleteMovie}>Delete</button>}
                         </section>)
                 }
             </>
