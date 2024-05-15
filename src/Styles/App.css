@@ -102,43 +102,6 @@ transition: 0.3s;
     width: 300px
 }
 
-.btn-like img {
-    width: 19px;
-    border-bottom: 35px;
-    margin-bottom: 3px;
-}
-.btn-like {
-    border: none;
-    text-decoration: none;
-    background-color: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    padding-top: 4px;
-    border-bottom: 35px;
-    margin: 0 auto;
-}
-.btn-like:hover {
-    transition: 0.2s;
-    background-color: #a9a7a7;  
-  }
-
-  .btn-like.selected {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    padding-top: 4px;
-    margin: 0 auto;
-    background-color:  rgb(32, 180, 124);
-  }
 
 
 .form-content {

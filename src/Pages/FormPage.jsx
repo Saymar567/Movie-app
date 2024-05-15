@@ -1,14 +1,14 @@
 import { useState } from "react";
 import supabase from "../Supabase/config";
-const createFilm = {
-    title: "",
-        release_date: "",
-        overview: "",
-        poster_path: "",
-        id: Math.floor(Math.random() * 1000000000)
-    }
 
 function FormPage(){
+    const createFilm = {
+        title: "",
+            release_date: "",
+            overview: "",
+            poster_path: "",
+            id: Math.floor(Math.random() * 1000000000)
+        }
     const [newFilm, setNewFilm] = useState(createFilm)
     
     const handleInput = (event)=>{
