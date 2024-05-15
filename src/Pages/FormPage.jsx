@@ -1,5 +1,7 @@
 import { useState } from "react";
 import supabase from "../Supabase/config";
+import AllMoviesDetails from "./AllMoviesDetails";
+
 
 function FormPage(){
     const createFilm = {
@@ -46,9 +48,9 @@ if (error){
 <button style={{width: 50}}>Create film</button>
             </form>
         </div>
+        <AllMoviesDetails newFilm={newFilm}/>
         </>
     )
 }
 export default FormPage
 
-// apiarray.concat(supabase.from("Movies"))

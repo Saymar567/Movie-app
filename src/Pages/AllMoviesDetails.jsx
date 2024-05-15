@@ -5,8 +5,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import supabase from "../Supabase/config";
+import FormPage from "./FormPage";
+import MyList from "./MyList";
 
-function AllMoviesDetails() {
+function AllMoviesDetails({newFilm}) {
     const [movieCard, setMovie] = useState(null)
     const { movieId } = useParams();
     const navigate = useNavigate();
@@ -26,11 +28,23 @@ function AllMoviesDetails() {
         }
 
     }
-    /*const deleteMovie = movieId =>{
-        const deleteButton = movieCard.filter(movieCard => movieCard.id !== movieId)
-        return setMovie(deleteButton) }*/
+   const addToFavorites= async()=>{
+    try{
+        const {data, error}= await supabase.from("Favorite_movies").insert([{movieId: movieCard.id}])
+if(error) {
+    console.log(error, "error in adding to favorites")
+}else{
+    console.log("film added to favorites", data)
+}
+    }catch(error){
+        console.log("error trying to add the film", error)
+    }
+   }
+
+
 const toggleButton = () =>{
-    setPressButton(!pressButton)
+    setPressButton(!pressButton);
+    addToFavorites()
 }
     const callingMovies = async () => {
         try{
@@ -77,12 +91,16 @@ const toggleButton = () =>{
         }
         useEffect(() => {
             getOneMovie()
-        }, [movieId])
+        }, [movieId]);
 
+        /*let newPoster = "";
+        if(newFilm.poster_path) {
+            newPoster = newFilm.poster_path.replace("https://image.tmdb.org/t/p/w500/", "")
+            return newPoster
+        }*/
         if(!movieCard){
-            
             return  <button onClick={() => navigate(-1)} >Go back</button>
-        }
+        };
         console.log(movieCard)
         return (
             <>
@@ -90,7 +108,7 @@ const toggleButton = () =>{
                     movieCard && (
                         <section key={movieCard.id} className="card-container">
                             <h1>{movieCard.title} </h1>
-                            <img src={`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
+                            <img src={/*newFilm && isSupabase ? (newPoster):(*/`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
                            <button className="like-btn" onClick={toggleButton}> {} {pressButton ? (<img className="second-like-btn" src="/src/Images/icons8-me-gusta-24-1.png" alt=""></img>) :(<img src="/src/Images/icons8-me-gusta-24.png" alt="like-btn"></img>)} </button>
                             <p>{movieCard.release_date} </p>
                             <p>{movieCard.overview}</p>
@@ -104,6 +122,7 @@ const toggleButton = () =>{
                             {isSupabase && <button onClick={deleteMovie}>Delete</button>}
                         </section>)
                 }
+                <MyList newFilm={newFilm} />
             </>
         )
     }
