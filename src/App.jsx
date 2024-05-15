@@ -26,7 +26,7 @@ function App() {
       <Routes>
 <Route path="/" element={<HomePage />}/>
 <Route path="/movies/:q" element={<MoviesPage movies={movies} setMovies={setMovies} />} />
-<Route path="/MyList" element={<MyList />} />
+<Route path="/MyList" element={<MyList movies={movies}/>} />
 <Route path="/Form"element={<FormPage />}/>
 <Route path="/movies/details/:movieId" element={<AllMoviesDetails movies={movies} />} />
 <Route path="/contactForm" element={<ContactForm />} />

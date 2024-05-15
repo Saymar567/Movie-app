@@ -9,8 +9,11 @@ import supabase from "../Supabase/config";
 function AllMoviesDetails() {
     const [movieCard, setMovie] = useState(null)
     const { movieId } = useParams();
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
+    const [pressButton, setPressButton] = useState(false)
+const toggleButton = () =>{
+    setPressButton(!pressButton)
+}
     const callingMovies = async () => {
         try{
 
@@ -63,7 +66,7 @@ function AllMoviesDetails() {
                         <section key={movieCard.id} className="card-container">
                             <h1>{movieCard.title} </h1>
                             <img src={`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
-                           <button className="like-btn"> <img src="/src/Images/icons8-me-gusta-24.png" alt="like-btn"></img> <img className="second-like-btn" src="/src/Images/icons8-me-gusta-24-1.png" alt=""></img> </button>
+                           <button className="like-btn" onClick={toggleButton}> {} {pressButton ? (<img className="second-like-btn" src="/src/Images/icons8-me-gusta-24-1.png" alt=""></img>) :(<img src="/src/Images/icons8-me-gusta-24.png" alt="like-btn"></img>)} </button>
                             <p>{movieCard.release_date} </p>
                             <p>{movieCard.overview}</p>
 
