@@ -13,6 +13,7 @@ import AllMoviesDetails from './Pages/AllMoviesDetails'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import ContactForm from './Pages/ContactForm'
+import EditForm from './Components/EditForm'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 <Route path="/Form"element={<FormPage />}/>
 <Route path="/movies/details/:movieId" element={<AllMoviesDetails movies={movies} />} />
 <Route path="/contactForm" element={<ContactForm />} />
+<Route path ="/editForm/:movieId" element={<EditForm  />}/>
       </Routes>
       <Footer />
     </>

@@ -155,3 +155,8 @@ transition: 0.3s;
     flex-direction: row;
     gap: 10px
 }
+
+.favoriteMovie {
+    display: flex;
+    flex-wrap: wrap;
+}
