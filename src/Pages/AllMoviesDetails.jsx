@@ -16,7 +16,20 @@ function AllMoviesDetails({newFilm}) {
     // create a state variable to check if its supabase or not
     const [isSupabase, setIsSupabase] = useState(false)
 const [isFavorite, setIsFavorite] =useState(false)
-    const deleteMovie = async()=>{
+   
+const checkIfFavorite = async ()=>{
+    const {data, error} = await (supabase)
+    .from("Favorite_movies")
+    .select("movieId")
+    if(error){
+        console.log("me cagonmivida", error)
+    } else {
+        console.log(data);
+    }
+
+}
+
+const deleteMovie = async()=>{
         const {error} = await (supabase)
         .from("Movies")
         .delete()
@@ -39,13 +52,15 @@ if(error) {
     }catch(error){
         console.log("error trying to add the film", error)
     }
+    getOneMovie()
    }
 
 
 const toggleButton = () =>{
    setPressButton(pressButton);
     addToFavorites();
-    setIsFavorite(isFavorite)
+    checkIfFavorite();
+    setIsFavorite(isFavorite);
 }
     const callingMovies = async () => {
         try{
@@ -110,7 +125,7 @@ const toggleButton = () =>{
                         <section key={movieCard.id} className="card-container">
                             <h1>{movieCard.title} </h1>
                             <img src={/*newFilm && isSupabase ? (newPoster):(*/`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
-                           <button className="like-btn" onClick={toggleButton}> {isFavorite ? (<img className="second-like-btn" src="/src/Images/icons8-me-gusta-24-1.png" alt=""></img>) :(<img src="/src/Images/icons8-me-gusta-24.png" alt="like-btn"></img>)} </button>
+                           <button className="like-btn" onClick={toggleButton}> {isFavorite ? (<img className="second-like-btn" src={!movieCard.favorite ? "/src/Images/icons8-me-gusta-24-1.png" : "/src/Images/icons8-me-gusta-24.png"} alt=""></img>) :(<img src="/src/Images/icons8-me-gusta-24.png" alt="like-btn"></img>)} </button>
                             <p>{movieCard.release_date} </p>
                             <p>{movieCard.overview}</p>
 
@@ -121,6 +136,7 @@ const toggleButton = () =>{
                             <button onClick={() => navigate(-1)} >Go back</button>
                             <br />
                             {isSupabase && <button onClick={deleteMovie}>Delete</button>}
+                           {/* {isSupabase && <button onClick={editMovie}>Edit</button>}*/}
                         </section>)
                 }
                 <MyList newFilm={newFilm}  />

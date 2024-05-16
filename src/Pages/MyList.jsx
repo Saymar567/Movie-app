@@ -25,7 +25,7 @@ if(error){
 
    return (
             <>
-              <h1>FAVORITES</h1>
+             
              {favoriteMovie.map((movie)=>{
                 <p>{movie.title}</p>
              })}
