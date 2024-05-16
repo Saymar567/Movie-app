@@ -3,11 +3,12 @@ function HomePage(){
     return(
        <>
        <div className="homepage">
-        <h1>Welcome</h1>
-        <h1>Benvinguts</h1>
-        <h1>Ongi etorri</h1>
-        <h1>Bienvenidos</h1>
-        <h1>Benvenutti</h1>
+        <h1>VIDEO-CLUB SANTUTXU</h1>
+        <h2>Welcome</h2>
+        <h2>Benvinguts</h2>
+        <h2>Ongi etorri</h2>
+        <h2>Bienvenidos</h2>
+        <h2>Benvenutti</h2>
         </div>
         <div>
         <Search />

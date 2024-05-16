@@ -61,6 +61,7 @@ const MoviesPage = ({ movies, setMovies }) => {
 
 
     return (
+        <>
         <div className="section-card">
             {supabaseMovies.map((movie) => {
                 return (
@@ -73,8 +74,8 @@ const MoviesPage = ({ movies, setMovies }) => {
                 )
             })}
              {apiMovies.map((movie) => {
-                return (
-                    <Link  to={`/movies/details/${movie.id}`}>
+                 return (
+                     <Link  to={`/movies/details/${movie.id}`}>
                    <div key={movie.id}>
                         
                         <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
@@ -82,12 +83,13 @@ const MoviesPage = ({ movies, setMovies }) => {
                         </Link>
                 )
             })}
+        </div>
             <section className="subsection">
                 {q >= 2 && (<div><Link to={`/movies/1`}><button>First page</button></Link> </div>)}
                 <a className="pages">{createPages()}</a>
                 {q < 469 && (<div><Link to={`/movies/469`}><button>Last Page</button></Link> </div>)}
             </section>
-        </div>
+            </>
     )
 }
 
