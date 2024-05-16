@@ -4,7 +4,7 @@ function HomePage(){
        <>
        <div className="homepage">
         <h1>VIDEO-CLUB SANTUTXU</h1>
-         <img src="/src/Images/tmdb-logo.jpg" alt="tmdb-logo" />
+         <img src="./src/Images/tmdb-logo.jpg" alt="tmdb-logo" />
         <div className="section-h2">
 
         <h2>Welcome</h2>
