@@ -1,10 +1,11 @@
 import Search from "../Components/Search"
+import TMDB from "../Images/tmdb-logo.jpg"
 function HomePage(){
     return(
        <>
        <div className="homepage">
         <h1>VIDEO-CLUB SANTUTXU</h1>
-         <img src="./src/Images/tmdb-logo.jpg" alt="tmdb-logo" />
+         <img src={TMDB} alt="tmdb-logo" />
         <div className="section-h2">
 
         <h2>Welcome</h2>
