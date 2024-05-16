@@ -78,7 +78,7 @@ const removeFromFavorites = async()=> {
             addToFavorites();
 
         }else {
-            removeFromFavorites
+            removeFromFavorites()
         }
         
     }
@@ -153,7 +153,7 @@ try {
                     <section key={movieCard.id} className="card-container">
                         <h1>{movieCard.title} </h1>
                         <img src={isSupabase ? (movieCard.poster_path):`https://image.tmdb.org/t/p/w500/${movieCard.poster_path}`} alt={movieCard.original_title} />
-                        <button className={`like-btn ${isFavorite ? 'liked' : ''}`} onClick={toggleButton}> {isFavorite && <img className="second-like-btn" src="/src/Images/icons8-me-gusta-24.png"></img>} </button>
+                        <button className={`like-btn ${isFavorite ? 'liked' : ''}`} onClick={toggleButton}>  </button>
                         <p>{movieCard.release_date} </p>
                         <p>{movieCard.overview}</p>
 

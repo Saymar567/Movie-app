@@ -75,10 +75,6 @@ transition: 0.3s;
     flex-direction: column;
 }
 
-.section-card button {
-    margin-top: 50px;
-    border-radius: 10px;
-}
 .subsection {
     display: flex;
     flex-direction: row;
@@ -104,12 +100,14 @@ transition: 0.3s;
 }
 .like-btn{
     width: 32px;
-    height: 26px
+    height: 26px;
+    background-image: url("/src/Images/icons8-me-gusta-24.png") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
 }
-.like-btn img {
-    display: content;
-    width:20px
-}
+
 .like-btn.liked {
     background-image: url("/src/Images/icons8-me-gusta-24-1.png");
 }
@@ -182,5 +180,9 @@ gap: 10px
 .button3 {
     display: flex;
     justify-content: center;
-    align-items: centers;
+    align-items: center;
+    margin-top: 10px;
+}
+.button3 button {
+    border-radius: 20px;
 }
