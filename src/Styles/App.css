@@ -11,7 +11,6 @@
 body {
     cursor: url("/src/Images/icons8-popcorn-25.png"), auto;
 width: 1500px;
-
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .navbar {
@@ -98,6 +97,10 @@ transition: 0.3s;
     border: 1px solid black;
     width: 300px
 }
+.card-container button {
+    border-radius: 20px;
+    margin-top: 10px;
+}
 .like-btn{
     width: 32px;
     height: 26px;
@@ -171,6 +174,9 @@ transition: 0.3s;
 }
 .favorite-movie img {
     width: 100px
+}
+.favorite-movie button {
+    border-radius: 20px;
 }
 .wtf-section {
 display: flex;
