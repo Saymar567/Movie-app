@@ -41,19 +41,20 @@ transition: 0.3s;
     justify-content: center;
     flex-direction: column;
     width:100%;
-    background-image: url("/src/Images/videoclub.jpg");
+    background-image: url("/src/Images/cinema-wallpaper.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 .homepage h1 {
     display: flex;
     justify-content: center;
-    color: rgb(35, 142, 159);
+    color: rgb(254, 255, 255);
     
 }
 .homepage h2 {
     display: flex;
     flex-direction: row;
-    color: rgb(35, 142, 159);
+    color: rgb(255, 255, 255);
 }
 .section-card{
         display: flex;

@@ -50,7 +50,7 @@ const MoviesPage = ({ movies, setMovies }) => {
             const data = await response.json();
             setApiMovies(data.results)
             setSupabaseMovies(userMovies)
-            setMovies([...userMovies, ...data.results])
+            setMovies([ ...data.results, ...userMovies])
         
         } catch (error) { console.log("The end", error) }
     }
@@ -64,7 +64,7 @@ const MoviesPage = ({ movies, setMovies }) => {
         <>
         <div className="section-card">
             {supabaseMovies.map((movie) => {
-                return (
+                return Number(q)=== 1 && (
                     <Link  to={`/movies/details/${movie.id}`}>
                    <div key={movie.id}>
                         
@@ -73,16 +73,16 @@ const MoviesPage = ({ movies, setMovies }) => {
                         </Link>
                 )
             })}
-             {apiMovies.map((movie) => {
-                 return (
-                     <Link  to={`/movies/details/${movie.id}`}>
-                   <div key={movie.id}>
-                        
-                        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
-                    </div>
-                        </Link>
-                )
-            })}
+            {apiMovies.map((movie) => {
+                return (
+                    <Link  to={`/movies/details/${movie.id}`}>
+                  <div key={movie.id}>
+                       
+                       <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
+                   </div>
+                       </Link>
+               )
+           })}
         </div>
             <section className="subsection">
                 {q >= 2 && (<div><Link to={`/movies/1`}><button>First page</button></Link> </div>)}
