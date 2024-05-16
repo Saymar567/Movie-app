@@ -7,9 +7,12 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import supabase from "../Supabase/config";
 const MoviesPage = ({ movies, setMovies }) => {
+    const [supabaseMovies, setSupabaseMovies] =useState([]);
+    const [apiMovies, setApiMovies] = useState([])
     const { q } = useParams();
     const createPages = () => {
         const currentPage = Number(q);
+        
         const arrayofPages = [-2, -1, q, 1, 2];
         return arrayofPages.map((each) => {
             if (currentPage + each > 0 && each + currentPage < 469 && each !== q) {
@@ -45,6 +48,8 @@ const MoviesPage = ({ movies, setMovies }) => {
             // setMovies([...data.results, ...variableOfSupabase])
             console.log(userMovies)
             const data = await response.json();
+            setApiMovies(data.results)
+            setSupabaseMovies(userMovies)
             setMovies([...userMovies, ...data.results])
         
         } catch (error) { console.log("The end", error) }
@@ -57,7 +62,17 @@ const MoviesPage = ({ movies, setMovies }) => {
 
     return (
         <div className="section-card">
-            {movies.map((movie) => {
+            {supabaseMovies.map((movie) => {
+                return (
+                    <Link  to={`/movies/details/${movie.id}`}>
+                   <div key={movie.id}>
+                        
+                        <img src={`${movie.poster_path}`} alt={movie.original_title} />
+                    </div>
+                        </Link>
+                )
+            })}
+             {apiMovies.map((movie) => {
                 return (
                     <Link  to={`/movies/details/${movie.id}`}>
                    <div key={movie.id}>

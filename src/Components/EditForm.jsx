@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import callingMovies from "../Supabase/GetData"
 import { useEffect } from "react"
 import { useState } from "react"
+import supabase from "../Supabase/config"
 function EditForm() {
     const {movieId} =useParams()
     
@@ -23,16 +24,17 @@ function EditForm() {
     useEffect(()=>{
         callingMovies(movieId)
     })
-
-    const editMovie = async () => {
+console.log()
+    const editMovie = async (event) => {
+        event.preventDefault();
         const { error } = await (supabase)
             .from("Movies")
-            .update({ id: movieCard.id, title: movieCard.title, poster_path: movieCard.poster_path, release_date: movieCard.release_date })
-            .eq("id", movieCard.id)
+            .update(editFilm)
+            .eq("id", movieId)
         if (error) {
             console.log("qué collons està passant", error)
         } else {
-            setEditFilm()
+            setEditFilm(filmEdited)
 
         }
     }
@@ -42,13 +44,13 @@ function EditForm() {
             <div>
                 <form className="form-content" onSubmit={editMovie} action="">
                     <label htmlFor="title">Name </label>
-                    <input onChange={handleInput} value={filmEdited.title} type="text" name="title" />
+                    <input onChange={handleInput} value={editFilm.title} type="text" name="title" />
                     <label htmlFor="release_date">Release date </label>
-                    <input onChange={handleInput} value={filmEdited.release_date} type="number" name="release_date" />
+                    <input onChange={handleInput} value={editFilm.release_date} type="number" name="release_date" />
                     <label htmlFor="overview">Overview </label>
-                    <textarea onChange={handleInput} value={filmEdited.overview} type="text" name="overview" />
+                    <textarea onChange={handleInput} value={editFilm.overview} type="text" name="overview" />
                     <label htmlFor="poster_path">Poster</label>
-                    <input onChange={handleInput} value={filmEdited.poster_path} type="text" name="poster_path" />
+                    <input onChange={handleInput} value={editFilm.poster_path} type="text" name="poster_path" />
                     <button style={{ width: 50 }}>Edit film</button>
                 </form>
             </div>
