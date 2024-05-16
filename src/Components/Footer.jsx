@@ -9,9 +9,9 @@ const Footer = ()=>{
     return (
             <footer className="footer">
                <div>
-                <a href="https:/twitter.com" target="_blank"><img src={Twitter} alt="twitter-logo" /> </a>
-               <a href="https:/facebook.com" target="_blank"> <img src={Facebook} alt="" /></a>
-                <a href="https:/instagram.com"  target="_blank"><img src={Instagram} alt="" /></a>
+                <a href="https://twitter.com" target="_blank"><img src={Twitter} alt="twitter-logo" /> </a>
+               <a href="https://facebook.com" target="_blank"> <img src={Facebook} alt="" /></a>
+                <a href="https://instagram.com"  target="_blank"><img src={Instagram} alt="" /></a>
                 </div> 
        Video-Club Santutxu ©️ {newDate.getFullYear()}
      

@@ -24,7 +24,7 @@ const ContactForm = ()=>{
 <input type="text" name="message"/>
 <label htmlFor="Mail">Mail</label>
 <input type="email" name="mail" />
-<button>Send</button>
+<button >Send</button>
             </form>
         </div>
     )
