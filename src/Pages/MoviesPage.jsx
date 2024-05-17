@@ -11,12 +11,13 @@ const MoviesPage = ({ movies, setMovies }) => {
     const [apiMovies, setApiMovies] = useState([])
     const { q } = useParams();
     const createPages = () => {
+        // well done by converting the string to a number so it's easier to work with
         const currentPage = Number(q);
         
         const arrayofPages = [-2, -1, q, 1, 2];
         return arrayofPages.map((each) => {
             if (currentPage + each > 0 && each + currentPage < 469 && each !== q) {
-                return (
+                return ( // in this case the fragment is not necessary, you can remove it
                     <>
                         <Link key={currentPage + each} to={`/movies/${each + currentPage}`}>{each + currentPage}
                         </Link>
@@ -33,7 +34,7 @@ const MoviesPage = ({ movies, setMovies }) => {
     const callingMovies = async ()=>{
       const {data, error} = await supabase.from("Movies").select();
       if(error) {
-        console.log("WTF is going on", error)
+        console.log("WTF is going on", error) // LANGUAGE!!!
       } else {
         console.log("Data fetch-a, good cheese")
         return data
@@ -93,7 +94,7 @@ const MoviesPage = ({ movies, setMovies }) => {
     )
 }
 
-
+/* Avoid having unused code on your app */
 {/*movies.map((movie)=> 
 (<h1>{movie.name}</h1>
     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />

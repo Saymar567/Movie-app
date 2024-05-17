@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from './assets/react.svg' // remember to delete the lines you are not using
 import viteLogo from '/vite.svg'
 
 import HomePage from './Pages/HomePage'

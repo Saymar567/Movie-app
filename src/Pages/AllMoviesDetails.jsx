@@ -5,9 +5,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import supabase from "../Supabase/config";
-import FormPage from "./FormPage";
-import MyList from "./MyList";
-import EditForm from "../Components/EditForm";
+import FormPage from "./FormPage"; // this import is not being used
+import MyList from "./MyList"; // this import is not being used
+import EditForm from "../Components/EditForm"; // this import is not being used
 import callingMovies from "../Supabase/GetData";
 
 function AllMoviesDetails({ newFilm }) {
@@ -56,6 +56,7 @@ function AllMoviesDetails({ newFilm }) {
     }
 
 const removeFromFavorites = async()=> {
+    // the implementation of the async/await is correct, but the try/catch block is not necessary because you are already destructuring the response and the error
     try{
         const {data, error} = await supabase
         .from("Favorite_movies")
@@ -68,7 +69,7 @@ const removeFromFavorites = async()=> {
             setIsFavorite(false)
         }
     }catch(error) {
-        console.log(error, "error trying to remove the fu*** thing")
+        console.log(error, "error trying to remove the fu*** thing") // careful with the language 
     }
 }
 
@@ -84,6 +85,8 @@ const removeFromFavorites = async()=> {
     }
 
     const getOneMovie = async () => {
+        // in this case the try/catch block is necessary because you are making a request to an external API
+        // good implementation! 
         try {
 
             const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=bd5de89b9e82b5b22c882427a34369fa`);
