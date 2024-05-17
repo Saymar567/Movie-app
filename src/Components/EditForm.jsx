@@ -12,7 +12,7 @@ function EditForm() {
         release_date: "",
         overview: ""
     }
-    const [editFilm, setEditFilm] = useState(filmEdited)
+    const [editFilm, setEditFilm] = useState(filmEdited) // the name of this variable can be confusing, editFilm can look like a function that modifies the film, but it is just a variable that stores the film that we are going to edit
 
     const handleInput = (event) => {
         const field = event.target.name;
@@ -32,7 +32,7 @@ console.log()
             .update(editFilm)
             .eq("id", movieId)
         if (error) {
-            console.log("qué collons està passant", error)
+            console.log("qué collons està passant", error) // careful with the language you share with the user/other developers
         } else {
             setEditFilm(filmEdited)
 
@@ -51,7 +51,7 @@ console.log()
                     <textarea onChange={handleInput} value={editFilm.overview} type="text" name="overview" />
                     <label htmlFor="poster_path">Poster</label>
                     <input onChange={handleInput} value={editFilm.poster_path} type="text" name="poster_path" />
-                    <button style={{ width: 50 }}>Edit film</button>
+                    <button style={{ width: 50 }}>Edit film</button> {/* Inline styling is not recommended in our projects */}
                 </form>
             </div>
         </>

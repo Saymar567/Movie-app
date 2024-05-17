@@ -12,7 +12,7 @@ const ContactForm = ()=>{
         event.preventDefault();
 
     }
-
+// careful with the format of the code, it is important to have a good format to make it easier to read and understand
     return(
         <div>
             <form className="form-content" onChange={handleSubmit} action="">

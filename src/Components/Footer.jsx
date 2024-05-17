@@ -5,7 +5,7 @@ import Instagram from "../Images/icons8-instagram-25.png"
 
 const Footer = ()=>{
     const newDate = new Date();
-    
+    // please format your code before pushing it to the repository, this makes it easier to read and understand
     return (
             <footer className="footer">
                <div>
@@ -13,7 +13,7 @@ const Footer = ()=>{
                <a href="https://facebook.com" target="_blank"> <img src={Facebook} alt="" /></a>
                 <a href="https://instagram.com"  target="_blank"><img src={Instagram} alt="" /></a>
                 </div> 
-       Video-Club Santutxu ©️ {newDate.getFullYear()}
+       Video-Club Santutxu ©️ {newDate.getFullYear()} {/* Good detail */}
      
        <Link to="/contactForm"><button>Contact me</button></Link>
         </footer>
