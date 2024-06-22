@@ -43,12 +43,11 @@ const MoviesPage = ({ movies, setMovies }) => {
         try {
             const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_MOVIEBASE_KEY}&page=${q}`);
             const userMovies = await callingMovies()
-            // add the supabase call for the Movies table
-            // store it in a variable (also await)
-            // setMovies([...data.results, ...variableOfSupabase])
+          
             console.log(userMovies)
             const data = await response.json();
             setApiMovies(data.results)
+            console.log(data.results)
             setSupabaseMovies(userMovies)
             setMovies([ ...data.results, ...userMovies])
         
