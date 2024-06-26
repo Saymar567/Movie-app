@@ -38,7 +38,7 @@ const {data, error} = await supabase
 .delete()
 .eq("movieId", movieId);
 if(error){
-    console.log("another f** error", error)
+    console.log("another error", error)
     return
 }else{
     console.log("removed at last!", data)

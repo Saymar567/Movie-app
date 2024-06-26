@@ -92,15 +92,4 @@ const MoviesPage = ({ movies, setMovies }) => {
     )
 }
 
-
-{/*movies.map((movie)=> 
-(<h1>{movie.name}</h1>
-    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
-<p>{movie.movie.release_date}</p>
-<Link to={`/movie/${movie.id}`}> <button>Details</button> </Link>
-))}        
-</div>
-<div><Link to={`/Movies/${q}`}><button>Next page</button></Link> </div>
-    )
-*/}
 export default MoviesPage
