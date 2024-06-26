@@ -42,6 +42,7 @@ const MoviesPage = ({ movies, setMovies }) => {
     async function getMovies() {
         try {
             const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_MOVIEBASE_KEY}&page=${q}`);
+            console.log(response, "it is working?")
             const userMovies = await callingMovies()
           
             console.log(userMovies)
